@@ -35,20 +35,11 @@ public class Time {
   
   public static void stopwatch() {
     System.out.println("Enter anything to stop the stopwatch.");
-    int i;
+    Instant begin = Instant.now();
     Scanner scan3 = new Scanner(System.in);
-    for (i = 0; i > 0; i--) {
-      try {
-        Thread.sleep(1000);
-      }
-      catch (InterruptedException e) {
-        continue;
-      }
-      if (scan3.hasNext()) {
-        break;
-      }
-    }
-    
-    System.out.println(i / 60 + " minutes and " + i % 60 + " seconds have elapsed");
+    String n3 = scan3.next();
+    Instant end = Instant.now();
+    long x = Duration.between(begin, end).toMillis() / 1000;
+    System.out.println(x / 60 + " minutes and " + x % 60 + " seconds have elapsed");
   }
 }
